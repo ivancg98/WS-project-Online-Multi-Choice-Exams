@@ -8,7 +8,8 @@
 </head>
 <body>
 
-<a href="insert.jsp">Insert</a>
+<a href="insertExam.jsp">Insert a Exam</a>
+<a href="getAllExams.jsp">Get all Exams</a>
 
 </body>
 </html>

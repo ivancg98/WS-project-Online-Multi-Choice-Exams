@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<form autocomplete="off" action="insert.jsp" method="post">
+<form autocomplete="off" action="insertExam.jsp" method="post">
 	<p>
 		Description
 		<br/>

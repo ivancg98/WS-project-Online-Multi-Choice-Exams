@@ -2,6 +2,7 @@ package DB;
 
 import entities.Exam;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class ExamDB {
 
@@ -24,5 +25,33 @@ public class ExamDB {
 		
 		return result;
 		
+	}
+	
+	public ArrayList<Exam> getAll(){
+		ConnectDB con = new ConnectDB();
+		ArrayList<Exam> listExams = new ArrayList<>();
+		try {
+			Statement st = con.connect().createStatement();
+			String sql = "SELECT * FROM exam";
+			ResultSet resultQuery = st.executeQuery(sql);
+			while(resultQuery.next()) {
+				int key = Integer.parseInt(resultQuery.getString("key"));
+				String description = resultQuery.getString("description");
+				String date = resultQuery.getString("date");
+				int time = Integer.parseInt(resultQuery.getString("time"));
+				
+				Exam exam = new Exam();
+				exam.setKey(key);
+				exam.setDescription(description);
+				exam.setDate(date);
+				exam.setTime(time);
+				
+				listExams.add(exam);
+			}
+		}catch(Exception e){
+			System.out.println("Error: "+e);
+		}
+
+		return listExams;
 	}
 }

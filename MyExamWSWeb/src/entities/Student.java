@@ -1,4 +1,4 @@
-package resources;
+package entities;
 
 public class Student {
 

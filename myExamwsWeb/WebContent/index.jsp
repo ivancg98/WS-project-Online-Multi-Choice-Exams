@@ -7,9 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<p>
 <a href="insertExam.jsp">Insert a Exam</a>
+</p>
+<p>
 <a href="getAllExams.jsp">Get all Exams</a>
+</p>
+</p>
+<a href="getExamFromKey.jsp">Get exam from a key</a>
+</p>
 
 </body>
 </html>

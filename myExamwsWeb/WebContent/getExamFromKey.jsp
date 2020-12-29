@@ -3,7 +3,6 @@
     
     <%@ page import="entities.Exam" %>
     <%@ page import="DB.*" %>
-    <%@ page import="java.util.ArrayList" %>
     
 <!DOCTYPE html>
 <html>
@@ -13,23 +12,38 @@
 </head>
 <body>
 
+<form autocomplete="off" action="getExamFromKey.jsp" method="post">
+	<p>
+		Enter Key
+		<br/>
+		<input type="text" name="key" required="required"  />
+	</p>
+	
+	<input type="reset" value= "Reset"/>
+	<input type="submit" name="send" value= "Search">
+</form>
+
 <table border="1">
 
+<p>
 <tr>
 	<td>Key</td>
 	<td>Description</td>
 	<td>Date</td>
 	<td>Time</td>
 </tr>
+</p>
 
-<% 
-ExamDB examdb = new ExamDB();
-Exam exam = new Exam();
 
-ArrayList<Exam> listExams = examdb.getAll();
 
-for(int i=0; i<listExams.size(); i++){
-	exam = listExams.get(i);
+
+<%
+
+if(request.getParameter("send")!= null){
+
+	ExamDB examdb = new ExamDB();
+	int k = Integer.parseInt(request.getParameter("key"));
+	Exam exam = examdb.getFromKey(k);
 	
 	out.println(" <tr>");
 	out.println(" <td>"+exam.getKey()+"</td>");
@@ -41,7 +55,9 @@ for(int i=0; i<listExams.size(); i++){
 }
 
 %>
+
 </table>
+
 
 <p>
 <a href="index.jsp">Return</a>
@@ -50,3 +66,4 @@ for(int i=0; i<listExams.size(); i++){
 
 </body>
 </html>
+

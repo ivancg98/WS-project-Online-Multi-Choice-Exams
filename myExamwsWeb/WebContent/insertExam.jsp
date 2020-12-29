@@ -33,6 +33,10 @@
 
 </form>
 
+<p>
+<a href="index.jsp">Return</a>
+</p>
+
 </body>
 </html>
 
@@ -46,10 +50,7 @@ if(request.getParameter("send")!= null){
 	
 	int time = Integer.parseInt(timeStr);
 	
-	Exam exam = new Exam();
-	exam.setDescription(description);
-	exam.setDate(date);
-	exam.setTime(time);
+	Exam exam = new Exam(description, date, time);
 	
 	ExamDB examdb = new ExamDB();
 	String result = examdb.insert(exam);

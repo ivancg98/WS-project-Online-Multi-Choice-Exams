@@ -53,7 +53,7 @@ if(request.getParameter("send")!= null){
 	Exam exam = new Exam(description, date, time);
 	
 	ExamDB examdb = new ExamDB();
-	String result = examdb.insert(exam);
+	Boolean result = examdb.insert(exam);
 	out.println(result);
 	
 }

@@ -31,6 +31,35 @@ public class ExamREST{
     public ArrayList<Exam> getAllContents(){
         return examdb.getAll();
     }
+    
+    @Path("/{examKey}")
+    @GET
+    @Produces("application/json")
+    public Exam getFromKey(@PathParam("examKey") int examKey){
+    	return examdb.getFromKey(examKey);
+    }
+    
+    @Path("")
+    @POST
+    public Response insertExam(Exam exam){
+
+        if (examdb.insert(exam)) {
+        	return Response.status(201).build();
+        }
+        
+        return Response.status(500).build();
+    }
+    
+    @Path("/{examKey}")
+    @DELETE
+    public Response deleteExam(@PathParam("examKey") int examKey){
+
+        if (examdb.delete(examKey)) {
+        	return Response.status(200).build();
+        }
+        
+        return Response.status(500).build();
+    }
 		
 	
 }

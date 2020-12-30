@@ -11,7 +11,7 @@
 <a href="insertExam.jsp">Insert a Exam</a>
 </p>
 <p>
-<a href="getAllExams.jsp">Get all Exams</a>
+<a href="getAllExams.jsp">Get all Exams</a> or <a href="rest/exam">Get all Exams(REST)</a>
 </p>
 </p>
 <a href="getExamFromKey.jsp">Get exam from a key</a>

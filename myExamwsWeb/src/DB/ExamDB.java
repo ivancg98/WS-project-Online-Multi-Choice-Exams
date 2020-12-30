@@ -6,22 +6,23 @@ import java.util.ArrayList;
 
 public class ExamDB {
 
-	public String insert(Exam exam) {
+	public boolean insert(Exam exam) {
 		ConnectDB con = new ConnectDB();
-		String result = "I don't know";
 		
 		try {
 			Statement st = con.connect().createStatement();
 			String sql = "INSERT INTO exam (description, date, time) VALUES('"+exam.getDescription()+"' , '"+exam.getDate()+"' , "+exam.getTime()+");";
 			st.executeUpdate(sql);
 			st.close();
-			result = "succes";
+			
 			
 		}catch(Exception e) {
-			result = "error: "+e;
+			System.out.println("ERROR:"+e);
+			return false;
 		}
 		
-		return result;
+		con.disconnect();
+		return true;
 		
 	}
 	
@@ -47,7 +48,7 @@ public class ExamDB {
 			System.out.println("Error: "+e);
 		}
 
-		
+		con.disconnect();
 		return listExams;
 	}
 	
@@ -77,6 +78,31 @@ public class ExamDB {
 		}
 		
 
+		con.disconnect();
 		return exam;
 	}
+	
+	
+	public boolean delete(int key) {
+		ConnectDB con = new ConnectDB();
+		
+		try {
+			Statement st = con.connect().createStatement();
+			String sql = "DELETE FROM EXAM WHERE key = "+key+";";
+			st.executeUpdate(sql);
+			st.close();
+			
+			
+		}catch(Exception e) {
+			System.out.println("ERROR:"+e);
+		}
+		
+		con.disconnect();
+		return true;
+		
+	}
+	
+	
+	
+	
 }

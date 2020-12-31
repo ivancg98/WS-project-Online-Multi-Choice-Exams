@@ -27,7 +27,7 @@
 ExamDB examdb = new ExamDB();
 Exam exam = new Exam();
 
-ArrayList<Exam> listExams = examdb.getAll();
+ArrayList<Exam> listExams = examdb.getAllExams();
 
 for(int i=0; i<listExams.size(); i++){
 	exam = listExams.get(i);
@@ -37,6 +37,7 @@ for(int i=0; i<listExams.size(); i++){
 	out.println(" <td>"+exam.getDescription()+"</td>");
 	out.println(" <td>"+exam.getDate()+"</td>");
 	out.println(" <td>"+exam.getTime()+"</td>");
+	out.println(" <td>"+exam.getLocation()+"</td>");
 	out.println(" </tr>");
 
 }

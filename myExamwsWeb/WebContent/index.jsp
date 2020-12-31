@@ -17,5 +17,9 @@
 <a href="getExamFromKey.jsp">Get exam from a key</a>
 </p>
 
+</p>
+<a href="insertServer.jsp">Insert a Server</a>
+</p>
+
 </body>
 </html>

@@ -44,13 +44,14 @@ if(request.getParameter("send")!= null){
 
 	ExamDB examdb = new ExamDB();
 	int k = Integer.parseInt(request.getParameter("key"));
-	Exam exam = examdb.getFromKey(k);
+	Exam exam = examdb.getExamFromKey(k);
 	
 	out.println(" <tr>");
 	out.println(" <td>"+exam.getKey()+"</td>");
 	out.println(" <td>"+exam.getDescription()+"</td>");
 	out.println(" <td>"+exam.getDate()+"</td>");
 	out.println(" <td>"+exam.getTime()+"</td>");
+	out.println(" <td>"+exam.getLocation()+"</td>");
 	out.println(" </tr>");
 
 }

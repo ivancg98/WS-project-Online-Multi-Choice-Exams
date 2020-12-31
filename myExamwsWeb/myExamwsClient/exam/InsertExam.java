@@ -1,4 +1,4 @@
-package myExamwsClient;
+package exam;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -22,7 +22,7 @@ public class InsertExam {
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("Content-Type", "application/json");
 		
-		Exam exam = new Exam("web","30/12/2020",13);
+		Exam exam = new Exam("web","30/12/2020","13:00", 1);
 		Gson gson = new Gson();
 		System.out.println("The exam to be inserted: "+gson.toJson(exam));
 		OutputStream out = connection.getOutputStream();

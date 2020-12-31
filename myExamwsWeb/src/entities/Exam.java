@@ -4,26 +4,28 @@ public class Exam {
 	public int key;
 	public String description;
 	public String date;
-	public int time;
+	public String time;
+	public int location;
 
 	
 	public Exam() {
 		
 	}
 	
-	public Exam(int key, String description, String date, int time) {
+	public Exam(int key, String description, String date, String time, int location) {
 		this.key = key;
 		this.description = description;
 		this.date = date;
 		this.time = time;
+		this.location = location; 
 
 	}
 	
-	public Exam(String description, String date, int time) {
+	public Exam(String description, String date, String time, int location) {
 		this.description = description;
 		this.date = date;
 		this.time = time;
-
+		this.location = location;
 	}
 	
 	public void setKey(int key) {
@@ -38,8 +40,12 @@ public class Exam {
 		this.date = date;
 	}
 	
-	public void setTime(int time) {
+	public void setTime(String time) {
 		this.time = time;
+	}
+	
+	public void setLocation(int serverkey) {
+		this.location = serverkey;
 	}
 	
 	public int getKey() {
@@ -54,8 +60,12 @@ public class Exam {
 		return this.date;
 	}
 	
-	public int getTime() {
+	public String getTime() {
 		return this.time;
+	}
+	
+	public int getLocation() {
+		return this.location;
 	}
 	
 }

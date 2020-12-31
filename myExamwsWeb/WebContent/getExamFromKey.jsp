@@ -31,6 +31,7 @@
 	<td>Description</td>
 	<td>Date</td>
 	<td>Time</td>
+	<td>Location</td>
 </tr>
 </p>
 

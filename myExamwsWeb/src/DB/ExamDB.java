@@ -11,7 +11,7 @@ public class ExamDB {
 		
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "INSERT INTO exam (description, date, time) VALUES('"+exam.getDescription()+"' , '"+exam.getDate()+"' , "+exam.getTime()+");";
+			String sql = "INSERT INTO exam (description, date, time, location) VALUES('"+exam.getDescription()+"' , '"+exam.getDate()+"' , '"+exam.getTime()+"', "+exam.getLocation()+" );";
 			st.executeUpdate(sql);
 			st.close();
 			
@@ -38,9 +38,10 @@ public class ExamDB {
 				int key = Integer.parseInt(resultQuery.getString("key"));
 				String description = resultQuery.getString("description");
 				String date = resultQuery.getString("date");
-				int time = Integer.parseInt(resultQuery.getString("time"));
+				String time = resultQuery.getString("time");
+				int location = Integer.parseInt(resultQuery.getString("location"));
 				
-				Exam exam = new Exam(key, description, date, time);	
+				Exam exam = new Exam(key, description, date, time, location);	
 				listExams.add(exam);
 			}
 			
@@ -65,12 +66,14 @@ public class ExamDB {
 				int key = Integer.parseInt(resultQuery.getString("key"));
 				String description = resultQuery.getString("description");
 				String date = resultQuery.getString("date");
-				int time = Integer.parseInt(resultQuery.getString("time"));
+				String time = resultQuery.getString("time");
+				int location = Integer.parseInt(resultQuery.getString("location"));
 			
 				exam.setKey(key);
 				exam.setDescription(description);
 				exam.setDate(date);
 				exam.setTime(time);
+				exam.setLocation(location);
 			}
 			
 		}catch(Exception e){

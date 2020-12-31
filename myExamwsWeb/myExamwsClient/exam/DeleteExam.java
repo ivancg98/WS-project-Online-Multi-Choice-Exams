@@ -1,4 +1,4 @@
-package myExamwsClient;
+package exam;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -12,7 +12,7 @@ import entities.Exam;
 public class DeleteExam {
 	public static void main(String[] args){ 
 	try {
-		URL url = new URL("http://localhost:8080/myExamwsWeb/rest/exam/14");
+		URL url = new URL("http://localhost:8080/myExamwsWeb/rest/exam/13");
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 		connection.setDoOutput(true);
 		connection.setRequestMethod("DELETE");

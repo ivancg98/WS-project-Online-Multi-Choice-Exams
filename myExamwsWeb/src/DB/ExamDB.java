@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class ExamDB {
 
-	public boolean insert(Exam exam) {
+	public boolean insertExam(Exam exam) {
 		ConnectDB con = new ConnectDB();
 		
 		try {
@@ -26,7 +26,7 @@ public class ExamDB {
 		
 	}
 	
-	public ArrayList<Exam> getAll(){
+	public ArrayList<Exam> getAllExams(){
 		ConnectDB con = new ConnectDB();
 		ArrayList<Exam> listExams = new ArrayList<>();
 		
@@ -54,7 +54,7 @@ public class ExamDB {
 	}
 	
 	
-	public Exam getFromKey(int k) {
+	public Exam getExamFromKey(int k) {
 		ConnectDB con = new ConnectDB();
 		Exam exam = new Exam();
 		
@@ -86,7 +86,7 @@ public class ExamDB {
 	}
 	
 	
-	public boolean delete(int key) {
+	public boolean deleteExam(int key) {
 		ConnectDB con = new ConnectDB();
 		
 		try {

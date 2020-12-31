@@ -29,21 +29,21 @@ public class ExamREST{
     @GET
     @Produces("application/json")
     public ArrayList<Exam> getAllContents(){
-        return examdb.getAll();
+        return examdb.getAllExams();
     }
     
     @Path("/{examKey}")
     @GET
     @Produces("application/json")
     public Exam getFromKey(@PathParam("examKey") int examKey){
-    	return examdb.getFromKey(examKey);
+    	return examdb.getExamFromKey(examKey);
     }
     
     @Path("")
     @POST
     public Response insertExam(Exam exam){
 
-        if (examdb.insert(exam)) {
+        if (examdb.insertExam(exam)) {
         	return Response.status(201).build();
         }
         
@@ -54,7 +54,7 @@ public class ExamREST{
     @DELETE
     public Response deleteExam(@PathParam("examKey") int examKey){
 
-        if (examdb.delete(examKey)) {
+        if (examdb.deleteExam(examKey)) {
         	return Response.status(200).build();
         }
         

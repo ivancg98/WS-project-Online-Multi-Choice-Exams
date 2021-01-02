@@ -4,16 +4,27 @@ public class Client {
 	public String key;
 	public int examKey;
 	public float grade;
+	public boolean hasGrade;
 	
 
 	public Client() {
 		
 	}
 	
-	public Client(String key, int examKey, float grade) {
+	public Client(String key, int examKey, float grade, boolean hasGrade) {
 		this.key = key;
 		this.examKey= examKey;
 		this.grade = grade;
+		this.grade = grade;
+		this.hasGrade = hasGrade;
+	}
+	
+	public Client(String key, int examKey) {
+		this.key = key;
+		this.examKey= examKey;
+		this.grade = 0.0f;
+		this.hasGrade = false;
+		
 	}
 	
 	
@@ -29,6 +40,10 @@ public class Client {
 		this.grade = grade;
 	}
 	
+	public void setHasGrade(boolean hasGrade) {
+		this.hasGrade = hasGrade;
+	}
+	
 	public String getKey() {
 		return this.key;
 	}
@@ -41,6 +56,9 @@ public class Client {
 		return this.grade;
 	}
 	
+	public boolean getHasGrade() {
+		return this.hasGrade;
+	}
 	
 	
 }

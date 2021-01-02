@@ -40,7 +40,7 @@ public class ExamREST{
     @Path("")
     @GET
     @Produces("application/json")
-    public ArrayList<Exam> getAllContents(){
+    public ArrayList<Exam> getAllExams(){
         return examdb.getAllExams();
     }
     

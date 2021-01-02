@@ -30,7 +30,7 @@ public class ServerREST {
     @Path("")
     @GET
     @Produces("application/json")
-    public ArrayList<Server> getAllContents(){
+    public ArrayList<Server> getAllServers(){
         return serverdb.getAllServers();
     }
 }

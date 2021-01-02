@@ -46,7 +46,7 @@ for(int i=0; i<listExams.size(); i++){
 </table>
 
 <p>
-<a href="index.jsp">Return</a>
+<a href="Index.jsp">Return</a>
 </p>
 
 

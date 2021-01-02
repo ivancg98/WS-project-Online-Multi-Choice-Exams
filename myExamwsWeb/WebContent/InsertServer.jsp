@@ -32,7 +32,7 @@
 </form>
 
 <p>
-<a href="index.jsp">Return</a>
+<a href="Index.jsp">Return</a>
 </p>
 
 </body>

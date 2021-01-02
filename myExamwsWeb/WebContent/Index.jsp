@@ -8,17 +8,17 @@
 </head>
 <body>
 <p>
-<a href="insertExam.jsp">Insert a Exam</a>
+<a href="InsertExam.jsp">Insert a Exam</a>
 </p>
 <p>
 <a href="rest/exam">Get all Exams</a>
 </p>
 </p>
-<a href="getExamFromKey.jsp">Get exam from a key</a>
+<a href="GetExamFromKey.jsp">Get exam from a key</a>
 </p>
 
 </p>
-<a href="insertServer.jsp">Insert a Server</a>
+<a href="InsertServer.jsp">Insert a Server</a>
 </p>
 
 </p>

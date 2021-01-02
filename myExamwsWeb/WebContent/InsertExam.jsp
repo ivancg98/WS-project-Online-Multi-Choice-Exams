@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<form autocomplete="off" action="insertExam.jsp" method="post">
+<form autocomplete="off" action="InsertExam.jsp" method="post">
 	<p>
 		Description
 		<br/>
@@ -41,7 +41,7 @@
 </form>
 
 <p>
-<a href="index.jsp">Return</a>
+<a href="Index.jsp">Return</a>
 </p>
 
 </body>

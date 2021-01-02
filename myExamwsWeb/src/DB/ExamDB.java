@@ -1,5 +1,6 @@
 package DB;
 
+import entities.Client;
 import entities.Exam;
 import java.sql.*;
 import java.util.ArrayList;
@@ -84,6 +85,80 @@ public class ExamDB {
 		con.disconnect();
 		return exam;
 	}
+	
+	public boolean modifyExamDescription(Exam exam, String description) {
+		ConnectDB con = new ConnectDB();
+		
+		try {
+			Statement st = con.connect().createStatement();
+			String sql = "INSERT INTseaO exam (description) VALUES('"+description+"') WHERE key = "+exam.getKey()+";";
+			st.executeUpdate(sql);
+			st.close();
+			
+		}catch(Exception e) {
+			System.out.println("ERROR:"+e);
+			return false;
+		}
+		
+		con.disconnect();
+		return true;
+		
+	}
+	
+	public ArrayList<Exam> fullSearchDescription(String d){
+		ConnectDB con = new ConnectDB();
+		ArrayList<Exam> listExams = new ArrayList<>();
+		
+		try {
+			Statement st = con.connect().createStatement();
+			String sql = "SELECT * FROM exam WHERE description = '"+d+"';";
+			ResultSet resultQuery = st.executeQuery(sql);
+			while(resultQuery.next()) {
+				int key = Integer.parseInt(resultQuery.getString("key"));
+				String description = resultQuery.getString("description");
+				String date = resultQuery.getString("date");
+				String time = resultQuery.getString("time");
+				int location = Integer.parseInt(resultQuery.getString("location"));
+				
+				Exam exam = new Exam(key, description, date, time, location);	
+				listExams.add(exam);
+			}
+			
+		}catch(Exception e){
+			System.out.println("Error: "+e);
+		}
+
+		con.disconnect();
+		return listExams;
+	}
+	
+	public ArrayList<Exam> partialSearchDescription(String d){
+		ConnectDB con = new ConnectDB();
+		ArrayList<Exam> listExams = new ArrayList<>();
+		
+		try {
+			Statement st = con.connect().createStatement();
+			String sql = "SELECT * FROM exam WHERE description LIKE '%"+d+"%';";
+			ResultSet resultQuery = st.executeQuery(sql);
+			while(resultQuery.next()) {
+				int key = Integer.parseInt(resultQuery.getString("key"));
+				String description = resultQuery.getString("description");
+				String date = resultQuery.getString("date");
+				String time = resultQuery.getString("time");
+				int location = Integer.parseInt(resultQuery.getString("location"));
+				
+				Exam exam = new Exam(key, description, date, time, location);	
+				listExams.add(exam);
+			}
+			
+		}catch(Exception e){
+			System.out.println("Error: "+e);
+		}
+
+		con.disconnect();
+		return listExams;
+	}
+	
 	
 	
 	public boolean deleteExam(int key) {

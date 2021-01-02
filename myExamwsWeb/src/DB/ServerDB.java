@@ -14,10 +14,9 @@ public class ServerDB {
 		
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "INSERT INTO server (ip, port) VALUES("+server.getIp()+" , "+server.getPort()+");";
+			String sql = "INSERT INTO server (ip, port) VALUES('"+server.getIp()+"' , '"+server.getPort()+"');";
 			st.executeUpdate(sql);
 			st.close();
-			
 			
 		}catch(Exception e) {
 			System.out.println("ERROR:"+e);
@@ -91,7 +90,7 @@ public Server getServerFromPortIp(String p, String i) {
 	
 	try {
 		Statement st = con.connect().createStatement();
-		String sql = "SELECT * FROM server WHERE port = "+p+" AND ip = "+i+";";
+		String sql = "SELECT * FROM server WHERE port = '"+p+"' AND ip = '"+i+"';";
 		ResultSet resultQuery = st.executeQuery(sql);
 		if(resultQuery.next()) {
 			int key = Integer.parseInt(resultQuery.getString("key"));

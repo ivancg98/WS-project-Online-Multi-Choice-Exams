@@ -13,8 +13,7 @@ public class ClientDB {
 
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "INSERT INTO client (key, keyExam) VALUES('" + client.getKey() + "' , " + client.getExamKey()
-					+ client.getGrade() + ",'" + Boolean.toString(client.getHasGrade()) + "';";
+			String sql = "INSERT INTO client (key, keyExam, grade, hasgrade) VALUES('"+client.getKey()+"',"+client.getExamKey()+","+client.getGrade()+","+Boolean.toString(client.getHasGrade())+");";
 			st.executeUpdate(sql);
 			st.close();
 
@@ -34,8 +33,7 @@ public class ClientDB {
 
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "UPDATE client SET grade = " + gradeStr + " AND hasgrade = TRUE WHERE key = '" + client.getKey()
-					+ "' AND keyexam = " + client.getExamKey() + ";";
+			String sql = "UPDATE client SET grade = " + gradeStr + " AND hasgrade = TRUE WHERE key = '" + client.getKey() + "' AND keyexam = " + client.getExamKey() + ";";
 			st.executeUpdate(sql);
 			
 			st.close();
@@ -126,7 +124,7 @@ public class ClientDB {
 
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "SELECT * FROM client WHERE key = '" + key + "' AND hasgrade = TRUE;";
+			String sql = "SELECT * FROM client WHERE keyexam = '" + key + "' AND hasgrade = TRUE;";
 			hasGrades = st.execute(sql);
 
 		} catch (Exception e) {

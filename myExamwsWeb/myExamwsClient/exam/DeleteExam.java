@@ -12,7 +12,7 @@ import entities.Exam;
 public class DeleteExam {
 	public static void main(String[] args){ 
 	try {
-		URL url = new URL("http://localhost:8080/myExamwsWeb/rest/exam/4");
+		URL url = new URL("http://localhost:8080/myExamwsWeb/rest/exam/1");
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 		connection.setDoOutput(true);
 		connection.setRequestMethod("DELETE");

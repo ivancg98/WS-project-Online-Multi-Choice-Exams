@@ -20,7 +20,7 @@ public class InsertClient {
 		
 		Client client = new Client("47489Y",1);
 		Gson gson = new Gson();
-		System.out.println("The client to be inserted: "+gson.toJson(client));
+		System.out.println("The client to be inserted: " + gson.toJson(client));
 		OutputStream out = connection.getOutputStream();
 		out.write(gson.toJson(client).getBytes());
 		out.flush();

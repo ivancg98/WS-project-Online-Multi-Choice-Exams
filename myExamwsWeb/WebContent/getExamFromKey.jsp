@@ -23,17 +23,6 @@
 	<input type="submit" name="send" value= "Search">
 </form>
 
-<table border="1">
-
-<p>
-<tr>
-	<td>Key</td>
-	<td>Description</td>
-	<td>Date</td>
-	<td>Time</td>
-	<td>Location</td>
-</tr>
-</p>
 
 
 
@@ -42,23 +31,14 @@
 
 if(request.getParameter("send")!= null){
 
-	ExamDB examdb = new ExamDB();
-	int k = Integer.parseInt(request.getParameter("key"));
-	Exam exam = examdb.getExamFromKey(k);
-	
-	out.println(" <tr>");
-	out.println(" <td>"+exam.getKey()+"</td>");
-	out.println(" <td>"+exam.getDescription()+"</td>");
-	out.println(" <td>"+exam.getDate()+"</td>");
-	out.println(" <td>"+exam.getTime()+"</td>");
-	out.println(" <td>"+exam.getLocation()+"</td>");
-	out.println(" </tr>");
+
+	response.sendRedirect("http://localhost:8080/myExamwsWeb/rest/exam/"+request.getParameter("key")); 
 
 }
 
 %>
 
-</table>
+
 
 
 <p>

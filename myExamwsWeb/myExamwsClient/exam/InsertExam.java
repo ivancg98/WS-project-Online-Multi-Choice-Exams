@@ -14,7 +14,11 @@ import entities.Exam;
 
 public class InsertExam {
 	
-	public static void main(String[] args){ 
+	public InsertExam() {
+		
+	}
+	
+	public static void main(Exam exam){ 
 	try {
 		URL url = new URL("http://localhost:8080/myExamwsWeb/rest/exam");
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -22,7 +26,7 @@ public class InsertExam {
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("Content-Type", "application/json");
 		
-		Exam exam = new Exam("web","30/12/2020","13:00", 1);
+	
 		Gson gson = new Gson();
 		System.out.println("The exam to be inserted: "+gson.toJson(exam));
 		OutputStream out = connection.getOutputStream();

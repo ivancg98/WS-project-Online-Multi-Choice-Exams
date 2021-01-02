@@ -11,7 +11,10 @@ import entities.Server;
 
 public class InsertServer {
 	
-	public static void main(String[] args){ 
+	public InsertServer() {
+		
+	}
+	public static void main(Server server){ 
 		try {
 			URL url = new URL("http://localhost:8080/myExamwsWeb/rest/server");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -19,7 +22,6 @@ public class InsertServer {
 			connection.setRequestMethod("POST");
 			connection.setRequestProperty("Content-Type", "application/json");
 			
-			Server server = new Server("1.2.3.6","1234");
 			Gson gson = new Gson();
 			System.out.println("The server to be inserted: "+gson.toJson(server));
 			OutputStream out = connection.getOutputStream();

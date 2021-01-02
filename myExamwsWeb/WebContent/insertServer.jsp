@@ -3,6 +3,8 @@
     
     <%@ page import="entities.*" %>
     <%@ page import="DB.*" %>
+    <%@ page import="server.*" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,9 +47,8 @@ if(request.getParameter("send")!= null){
 	
 	Server server = new Server(ip, port);
 	
-	ServerDB serverdb = new ServerDB();
-	Boolean result = serverdb.insertServer(server);
-	out.println(result);
+	InsertServer insertServer = new InsertServer();
+	insertServer.main(server);
 	
 }
 

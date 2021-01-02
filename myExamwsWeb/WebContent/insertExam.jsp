@@ -4,6 +4,7 @@
     
     <%@ page import="entities.Exam" %>
     <%@ page import="DB.*" %>
+    <%@ page import="exam.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,9 +59,8 @@ if(request.getParameter("send")!= null){
 	
 	Exam exam = new Exam(description, date, time, location);
 	
-	ExamDB examdb = new ExamDB();
-	Boolean result = examdb.insertExam(exam);
-	out.println(result);
+	InsertExam insertExam = new InsertExam();
+	insertExam.main(exam);
 	
 }
 

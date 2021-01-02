@@ -1,6 +1,6 @@
 package DB;
 
-import entities.Client;
+
 import entities.Exam;
 import java.sql.*;
 import java.util.ArrayList;

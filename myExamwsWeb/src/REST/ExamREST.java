@@ -25,6 +25,18 @@ public class ExamREST{
 	
 	private ExamDB examdb = new ExamDB();
 	
+	
+    @Path("")
+    @POST
+    public Response insertExam(Exam exam){
+
+        if (examdb.insertExam(exam)) {
+        	return Response.status(201).build();
+        }
+        
+        return Response.status(500).build();
+    }
+	
     @Path("")
     @GET
     @Produces("application/json")
@@ -39,16 +51,6 @@ public class ExamREST{
     	return examdb.getExamFromKey(examKey);
     }
     
-    @Path("")
-    @POST
-    public Response insertExam(Exam exam){
-
-        if (examdb.insertExam(exam)) {
-        	return Response.status(201).build();
-        }
-        
-        return Response.status(500).build();
-    }
     
     @Path("/{examKey}")
     @DELETE

@@ -113,10 +113,10 @@ public class ExamDB {
 		
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "SELECT * FROM exam WHERE description = '"+d+"';";
+			String sql = "SELECT * FROM exam WHERE description = '" + d + "';";
 			ResultSet resultQuery = st.executeQuery(sql);
 			while(resultQuery.next()) {
-				int key = Integer.parseInt(resultQuery.getString("key"));
+				int key = resultQuery.getInt("key");
 				String description = resultQuery.getString("description");
 				String date = resultQuery.getString("date");
 				String time = resultQuery.getString("time");
@@ -140,10 +140,10 @@ public class ExamDB {
 		
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "SELECT * FROM exam WHERE description LIKE '%"+d+"%';";
+			String sql = "SELECT * FROM exam WHERE description LIKE '%" + d + "%';";
 			ResultSet resultQuery = st.executeQuery(sql);
 			while(resultQuery.next()) {
-				int key = Integer.parseInt(resultQuery.getString("key"));
+				int key = resultQuery.getInt("key");
 				String description = resultQuery.getString("description");
 				String date = resultQuery.getString("date");
 				String time = resultQuery.getString("time");

@@ -54,6 +54,19 @@ public class ExamREST{
     	return examdb.getExamFromKey(examKey);
     }
     
+    @Path("/fullDescription/{description}")
+    @GET
+    @Produces("application/json")
+    public ArrayList<Exam> fullSearchDescriptio(@PathParam("description") String description){
+    	return examdb.fullSearchDescription(description);
+    }
+    
+    @Path("/partialDescription/{description}")
+    @GET
+    @Produces("application/json")
+    public ArrayList<Exam> partialSearchDescription(@PathParam("description") String description){
+    	return examdb.partialSearchDescription(description);
+    }
     
     @Path("/{examKey}")
     @DELETE

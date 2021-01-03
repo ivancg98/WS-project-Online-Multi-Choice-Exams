@@ -48,9 +48,10 @@ public class ExamClient {
 }
 	
 	
-		public static void deleteExam(String key){ 
+		public static void deleteExam(int key){ 
 		try {
-			URL url = new URL("http://localhost:8080/myExamwsWeb/rest/exam/"+key);
+			String keyStr = String.valueOf(key);
+			URL url = new URL("http://localhost:8080/myExamwsWeb/rest/exam/"+keyStr);
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setDoOutput(true);
 			connection.setRequestMethod("DELETE");

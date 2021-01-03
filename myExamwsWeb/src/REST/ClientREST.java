@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
@@ -31,6 +32,13 @@ public class ClientREST {
     @Produces("application/json")
     public ArrayList<Client> getListClientsAllExams(){
         return clientdb.getListClientsAllExams();
+    }
+    
+	@Path("/studentId/{key}")
+    @GET
+    @Produces("application/json")
+	public ArrayList<Client> getListGradesOfClient(@PathParam("key") String key){
+        return clientdb.getListGradesOfClient(key);
     }
 
 }

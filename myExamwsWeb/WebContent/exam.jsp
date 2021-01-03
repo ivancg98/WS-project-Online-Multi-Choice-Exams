@@ -16,9 +16,14 @@
 </p>
 <a href="getExamFromKey.jsp">Get exam from a key</a>
 </p>
+</p>
+<a href="deleteExam.jsp">Delete a Exam</a>
+</p>
+
 
 <p>
 <a href="index.jsp">Return</a>
 </p>
 </body>
 </html>
+

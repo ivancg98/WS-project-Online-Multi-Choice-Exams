@@ -15,7 +15,7 @@ public class ConnectDB {
 			connection = DriverManager.getConnection(url, user, password);
 			
 			if(connection != null) {
-				System.out.print("Connect ok");
+				System.out.print("Connect success  ");
 			}
 		}catch(Exception e){
 			System.out.print("Error: "+e);

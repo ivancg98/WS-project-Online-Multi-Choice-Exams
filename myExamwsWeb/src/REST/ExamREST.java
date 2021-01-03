@@ -9,6 +9,7 @@ import javax.ws.rs.core.Response;
 
 import DB.ClientDB;
 import DB.ExamDB;
+import entities.Client;
 import entities.Exam;
 
 import javax.ws.rs.GET;
@@ -68,9 +69,26 @@ public class ExamREST{
         
         return Response.status(500).build();
     }
+    
+    @Path("/{key}")
+    @PUT
+    public Response modifyExamDescription(@PathParam("key")  int key, Exam exam){
+    		
+    	if(!examdb.hasExam(key)) {
+    		return Response.status(409).build();
+    	}
+
+        if (examdb.modifyExamDescription(key, exam)) {
+        	return Response.status(200).build();
+        }
+        
+        return Response.status(500).build();
+    }
+
+}
 		
 	
-}
+
 
 
 

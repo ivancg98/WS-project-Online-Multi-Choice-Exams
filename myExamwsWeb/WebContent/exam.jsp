@@ -17,6 +17,9 @@
 <a href="getExamFromKey.jsp">Get exam from a Exam ID</a>
 </p>
 <p>
+<a href="modifyExamDescription.jsp">Modify Exam Description</a>
+</p>
+<p>
 <a href="deleteExam.jsp">Delete a Exam</a>
 </p>
 

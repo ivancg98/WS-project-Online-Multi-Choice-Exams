@@ -1,6 +1,7 @@
 package DB;
 
 
+import entities.Client;
 import entities.Exam;
 import java.sql.*;
 import java.util.ArrayList;
@@ -86,12 +87,13 @@ public class ExamDB {
 		return exam;
 	}
 	
-	public boolean modifyExamDescription(Exam exam, String description) {
+	public boolean modifyExamDescription(int key, Exam exam) {
 		ConnectDB con = new ConnectDB();
 		
+
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "INSERT INTseaO exam (description) VALUES('"+description+"') WHERE key = "+exam.getKey()+";";
+			String sql = "UPDATE exam SET description = '" + exam.getDescription() + "' WHERE key = " + key + ";";
 			st.executeUpdate(sql);
 			st.close();
 			
@@ -118,7 +120,7 @@ public class ExamDB {
 				String description = resultQuery.getString("description");
 				String date = resultQuery.getString("date");
 				String time = resultQuery.getString("time");
-				int location = Integer.parseInt(resultQuery.getString("location"));
+				int location = resultQuery.getInt("location");
 				
 				Exam exam = new Exam(key, description, date, time, location);	
 				listExams.add(exam);
@@ -145,7 +147,7 @@ public class ExamDB {
 				String description = resultQuery.getString("description");
 				String date = resultQuery.getString("date");
 				String time = resultQuery.getString("time");
-				int location = Integer.parseInt(resultQuery.getString("location"));
+				int location = resultQuery.getInt("location");
 				
 				Exam exam = new Exam(key, description, date, time, location);	
 				listExams.add(exam);
@@ -178,6 +180,24 @@ public class ExamDB {
 		con.disconnect();
 		return true;
 		
+	}
+	
+	public boolean hasExam(int key) {
+		ConnectDB con = new ConnectDB();
+		boolean hasExist;
+
+		try {
+			Statement st = con.connect().createStatement();
+			String sql = "SELECT * FROM exam WHERE key = " + key + ";";
+			ResultSet resultQuery = st.executeQuery(sql);
+			hasExist = resultQuery.next();
+
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+			return false;
+		}
+		con.disconnect();
+		return hasExist;
 	}
 	
 	

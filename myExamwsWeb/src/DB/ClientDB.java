@@ -124,7 +124,7 @@ public class ClientDB {
 
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "SELECT * FROM client WHERE examkey = '" + key + "' AND hasgrade = TRUE;";
+			String sql = "SELECT * FROM client WHERE examkey = " + key + " AND hasgrade = TRUE;";
 			ResultSet resultQuery = st.executeQuery(sql);
 			hasGrades = resultQuery.next();
 

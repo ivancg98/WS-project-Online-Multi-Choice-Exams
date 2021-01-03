@@ -10,11 +10,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Upload Grade</title>
 </head>
 <body>
 
-<form autocomplete="off" action="insertClient.jsp" method="post">
+<form autocomplete="off" action="uploadClientGrade.jsp" method="post">
 	<p>
 		Client ID
 		<br/>
@@ -25,10 +25,15 @@
 		<br/>
 		<input type="text" name="keyExam" required="required"  />
 	</p>
+		<p>
+		Grade
+		<br/>
+		<input type="text" name="grade" required="required"  />
+	</p>
 
 	
 	<input type="reset" value= "Reset fields"/>
-	<input type="submit" name="send" value= "Insert student">
+	<input type="submit" name="send" value= "Upload grade">
 
 </form>
 
@@ -45,12 +50,13 @@ if(request.getParameter("send")!= null){
 	
 	String key = request.getParameter("key");
 	String examKeyStr = request.getParameter("keyExam");
+	String gradeStr = request.getParameter("grade");
 	int examKey = Integer.parseInt(examKeyStr);
+	float grade = Float.valueOf(gradeStr);
 
-	Client client = new Client(key, examKey);
-	
+
 	ClientClient clientClient = new ClientClient();
-	clientClient.insertClient(client);
+	clientClient.uploadGrade(key, examKey, grade);
 	
 }
 

@@ -52,7 +52,7 @@ public class ClientREST {
 	
     @Path("/{key}/{examkey}")
     @PUT
-    public Response deleteExam(Float grade, @PathParam("key")  String key, @PathParam("examkey")  int examKey ){
+    public Response uploadGrade(@PathParam("key")  String key, @PathParam("examkey")  int examKey, Float grade){
 
     	Client client = new Client(key, examKey);
     		

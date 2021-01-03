@@ -19,6 +19,9 @@
 <a href="getClientFromExamKey.jsp">Get clients from a Exam ID</a>
 </p>
 
+<p>
+<a href="uploadClientGrade.jsp">Upload Client grade</a>
+</p>
 
 <p>
 <a href="index.jsp">Return</a>

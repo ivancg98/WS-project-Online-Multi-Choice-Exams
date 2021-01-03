@@ -42,6 +42,32 @@ public class ClientClient {
 	}catch(IOException e) {
 		System.out.println("Error: "+e);
 	}
+	
+	}
+	
+	public static void uploadGrade(String key, int examKey, float grade){ 
+	try {
+		String examKeyStr = String.valueOf(examKey);
+		URL url = new URL("http://localhost:8080/myExamwsWeb/rest/client/"+ key +"/"+ examKeyStr);
+		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+		connection.setDoOutput(true);
+		connection.setRequestMethod("PUT");
+		connection.setRequestProperty("Content-Type", "application/json");
+		
+		
+		Gson gson = new Gson();
+		System.out.println("The grade to be modified: " + gson.toJson(grade));
+		OutputStream out = connection.getOutputStream();
+		out.write(gson.toJson(grade).getBytes());
+		out.flush();
+		
+			
+		System.out.println("CODE: " + connection.getResponseCode());
+		connection.disconnect();
+		
+	}catch(IOException e) {
+		System.out.println("Error: "+e);
+	}
 }
 
 }

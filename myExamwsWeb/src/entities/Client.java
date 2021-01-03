@@ -15,7 +15,6 @@ public class Client {
 		this.key = key;
 		this.examKey= examKey;
 		this.grade = grade;
-		this.grade = grade;
 		this.hasGrade = hasGrade;
 	}
 	

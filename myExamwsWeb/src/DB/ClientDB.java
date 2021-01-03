@@ -33,7 +33,7 @@ public class ClientDB {
 
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "UPDATE client SET grade = " + gradeStr + " AND hasgrade = TRUE WHERE key = '" + client.getKey() + "' AND examkey = " + client.getExamKey() + ";";
+			String sql = "UPDATE client SET grade = " + gradeStr + ", hasgrade = TRUE WHERE key = '" + client.getKey() + "' AND examkey = " + client.getExamKey() + ";";
 			st.executeUpdate(sql);
 			
 			st.close();
@@ -125,7 +125,8 @@ public class ClientDB {
 		try {
 			Statement st = con.connect().createStatement();
 			String sql = "SELECT * FROM client WHERE examkey = '" + key + "' AND hasgrade = TRUE;";
-			hasGrades = st.execute(sql);
+			ResultSet resultQuery = st.executeQuery(sql);
+			hasGrades = resultQuery.next();
 
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
@@ -142,7 +143,8 @@ public class ClientDB {
 		try {
 			Statement st = con.connect().createStatement();
 			String sql = "SELECT * FROM client WHERE key = '" + client.getKey() + "' AND examKey = " + client.getExamKey() + ";";
-			hasExist = st.execute(sql);
+			ResultSet resultQuery = st.executeQuery(sql);
+			hasExist = resultQuery.next();
 
 		} catch (Exception e) {
 			System.out.println("Error: " + e);

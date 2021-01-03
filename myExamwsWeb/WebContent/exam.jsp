@@ -13,13 +13,12 @@
 <p>
 <a href="rest/exam">Get all Exams</a>
 </p>
-</p>
+<p>
 <a href="getExamFromKey.jsp">Get exam from a Exam ID</a>
 </p>
-</p>
+<p>
 <a href="deleteExam.jsp">Delete a Exam</a>
 </p>
-
 
 <p>
 <a href="index.jsp">Return</a>

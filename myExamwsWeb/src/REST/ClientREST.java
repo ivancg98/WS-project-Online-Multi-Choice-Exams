@@ -2,8 +2,10 @@ package REST;
 
 import java.util.ArrayList;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -46,6 +48,21 @@ public class ClientREST {
     @Produces("application/json")
 	public ArrayList<Client> getListClientsOfExam(@PathParam("examkey") int examkey){
         return clientdb.getListClientsOfExam(examkey);
+    }
+	
+    @Path("/{grade}")
+    @PUT
+    public Response deleteExam(Client client, @PathParam("grade")  Float grade ){
+    	
+    	if(!clientdb.hasClient(client)) {
+    		return Response.status(401).build();
+    	}
+
+        if (clientdb.uploadGrade(client, grade)) {
+        	return Response.status(200).build();
+        }
+        
+        return Response.status(500).build();
     }
 
 }

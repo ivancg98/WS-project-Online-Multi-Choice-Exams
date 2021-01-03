@@ -1,4 +1,5 @@
-package exam;
+package client;
+
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -12,13 +13,13 @@ import com.google.gson.Gson;
 import entities.Exam;
 
 
-public class InsertExam {
+public class ExamClient {
 	
-	public InsertExam() {
+	public ExamClient() {
 		
 	}
 	
-	public static void main(Exam exam){ 
+	public static void insertExam(Exam exam){ 
 	try {
 		URL url = new URL("http://localhost:8080/myExamwsWeb/rest/exam");
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -45,5 +46,26 @@ public class InsertExam {
 		System.out.println("Error: "+e);
 	}
 }
+	
+	
+		public static void deleteExam(String key){ 
+		try {
+			URL url = new URL("http://localhost:8080/myExamwsWeb/rest/exam/"+key);
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setDoOutput(true);
+			connection.setRequestMethod("DELETE");
+				
+			System.out.println("CODE: " + connection.getResponseCode());
+			connection.disconnect();
+			
+		}catch(IOException e) {
+			System.out.println("Error: "+e);
+		}
 
-}
+	}
+	}
+	
+	
+	
+
+

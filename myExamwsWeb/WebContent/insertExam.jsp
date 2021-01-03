@@ -4,7 +4,7 @@
     
     <%@ page import="entities.Exam" %>
     <%@ page import="DB.*" %>
-    <%@ page import="exam.*" %>
+    <%@ page import="client.ExamClient" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<form autocomplete="off" action="InsertExam.jsp" method="post">
+<form autocomplete="off" action="insertExam.jsp" method="post">
 	<p>
 		Description
 		<br/>
@@ -41,7 +41,7 @@
 </form>
 
 <p>
-<a href="Index.jsp">Return</a>
+<a href="exam.jsp">Return</a>
 </p>
 
 </body>
@@ -59,8 +59,8 @@ if(request.getParameter("send")!= null){
 	
 	Exam exam = new Exam(description, date, time, location);
 	
-	InsertExam insertExam = new InsertExam();
-	insertExam.main(exam);
+	ExamClient examClient = new ExamClient ();
+	examClient.insertExam(exam);
 	
 }
 

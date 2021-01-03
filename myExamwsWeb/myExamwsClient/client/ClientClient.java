@@ -1,5 +1,6 @@
 package client;
 
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -9,8 +10,13 @@ import com.google.gson.Gson;
 
 import entities.Client;
 
-public class InsertClient {
-	public static void main(String[] args){ 
+public class ClientClient {
+	
+	public ClientClient() {
+		
+	}
+	
+	public static void insertClient(Client client){ 
 	try {
 		URL url = new URL("http://localhost:8080/myExamwsWeb/rest/client");
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -18,7 +24,7 @@ public class InsertClient {
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("Content-Type", "application/json");
 		
-		Client client = new Client("47489Y",1);
+		
 		Gson gson = new Gson();
 		System.out.println("The client to be inserted: " + gson.toJson(client));
 		OutputStream out = connection.getOutputStream();
@@ -26,7 +32,7 @@ public class InsertClient {
 		out.flush();
 		
 		
-		if(connection.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
+		if(connection.getResponseCode() != 201) {
 			throw new RuntimeException("ERROR: " + connection.getResponseCode());
 		}
 		

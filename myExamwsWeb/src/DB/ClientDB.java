@@ -118,7 +118,7 @@ public class ClientDB {
 		return listGradesOfClient;
 	}
 
-	public boolean hasExamGrades(String key) {
+	public boolean hasExamGrades(int key) {
 		ConnectDB con = new ConnectDB();
 		boolean hasGrades;
 

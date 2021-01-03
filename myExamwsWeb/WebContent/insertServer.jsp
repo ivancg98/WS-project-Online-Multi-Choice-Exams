@@ -3,7 +3,7 @@
     
     <%@ page import="entities.*" %>
     <%@ page import="DB.*" %>
-    <%@ page import="server.*" %>
+    <%@ page import="client.ServerClient" %>
     
 <!DOCTYPE html>
 <html>
@@ -32,7 +32,7 @@
 </form>
 
 <p>
-<a href="Index.jsp">Return</a>
+<a href="server.jsp">Return</a>
 </p>
 
 </body>
@@ -47,8 +47,8 @@ if(request.getParameter("send")!= null){
 	
 	Server server = new Server(ip, port);
 	
-	InsertServer insertServer = new InsertServer();
-	insertServer.main(server);
+	ServerClient serverClient = new ServerClient();
+	serverClient.insertServer(server);
 	
 }
 

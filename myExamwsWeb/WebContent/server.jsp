@@ -4,26 +4,20 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Server servicies</title>
 </head>
 <body>
-<p>
-<a href="InsertExam.jsp">Insert a Exam</a>
 </p>
-<p>
-<a href="rest/exam">Get all Exams</a>
-</p>
-</p>
-<a href="GetExamFromKey.jsp">Get exam from a key</a>
-</p>
-
-</p>
-<a href="InsertServer.jsp">Insert a Server</a>
+<a href="insertServer.jsp">Insert a Server</a>
 </p>
 
 </p>
 <a href="rest/server">Get all Servers</a>
 </p>
 
+
+<p>
+<a href="index.jsp">Return</a>
+</p>
 </body>
 </html>

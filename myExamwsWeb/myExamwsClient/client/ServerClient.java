@@ -1,4 +1,5 @@
-package server;
+package client;
+
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -9,12 +10,12 @@ import com.google.gson.Gson;
 
 import entities.Server;
 
-public class InsertServer {
+public class ServerClient {
 	
-	public InsertServer() {
+	public ServerClient () {
 		
 	}
-	public static void main(Server server){ 
+	public static void insertServer(Server server){ 
 		try {
 			URL url = new URL("http://localhost:8080/myExamwsWeb/rest/server");
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();

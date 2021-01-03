@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form autocomplete="off" action="GetExamFromKey.jsp" method="post">
+<form autocomplete="off" action="getExamFromKey.jsp" method="post">
 	<p>
 		Enter Key
 		<br/>
@@ -42,7 +42,7 @@ if(request.getParameter("send")!= null){
 
 
 <p>
-<a href="Index.jsp">Return</a>
+<a href="exam.jsp">Return</a>
 </p>
 
 

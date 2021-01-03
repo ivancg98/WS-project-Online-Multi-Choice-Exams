@@ -7,6 +7,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
+import DB.ClientDB;
 import DB.ExamDB;
 import entities.Exam;
 
@@ -24,6 +25,7 @@ import javax.ws.rs.DELETE;
 public class ExamREST{
 	
 	private ExamDB examdb = new ExamDB();
+	private ClientDB clientdb = new ClientDB();
 	
 	
     @Path("")
@@ -55,6 +57,10 @@ public class ExamREST{
     @Path("/{examKey}")
     @DELETE
     public Response deleteExam(@PathParam("examKey") int examKey){
+    	
+    	if(!clientdb.hasExamGrades(examKey)) {
+    		return Response.status(401).build();
+    	}
 
         if (examdb.deleteExam(examKey)) {
         	return Response.status(200).build();

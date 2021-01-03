@@ -50,12 +50,14 @@ public class ClientREST {
         return clientdb.getListClientsOfExam(examkey);
     }
 	
-    @Path("/{grade}")
+    @Path("/{key}/{examkey}")
     @PUT
-    public Response deleteExam(Client client, @PathParam("grade")  Float grade ){
-    	
+    public Response deleteExam(Float grade, @PathParam("key")  String key, @PathParam("examkey")  int examKey ){
+
+    	Client client = new Client(key, examKey);
+    		
     	if(!clientdb.hasClient(client)) {
-    		return Response.status(401).build();
+    		return Response.status(409).build();
     	}
 
         if (clientdb.uploadGrade(client, grade)) {

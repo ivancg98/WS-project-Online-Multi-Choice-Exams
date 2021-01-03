@@ -59,7 +59,7 @@ public class ExamREST{
     public Response deleteExam(@PathParam("examKey") int examKey){
     	
     	if(!clientdb.hasExamGrades(examKey)) {
-    		return Response.status(401).build();
+    		return Response.status(409).build();
     	}
 
         if (examdb.deleteExam(examKey)) {

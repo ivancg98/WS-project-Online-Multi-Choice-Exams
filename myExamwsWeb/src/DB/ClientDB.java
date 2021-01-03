@@ -56,9 +56,9 @@ public class ClientDB {
 			ResultSet resultQuery = st.executeQuery(sql);
 			while (resultQuery.next()) {
 				String key = resultQuery.getString("key");
-				int examKey = Integer.parseInt(resultQuery.getString("examkey"));
-				float grade = Float.parseFloat(resultQuery.getString("grade"));
-				boolean hasGrade = Boolean.valueOf(resultQuery.getString("hasgrade"));
+				int examKey = resultQuery.getInt("examkey");
+				float grade = resultQuery.getFloat("grade");
+				boolean hasGrade = resultQuery.getBoolean("hasgrade");
 				Client client = new Client(key, examKey, grade, hasGrade);
 				listClientsOfExam.add(client);
 			}
@@ -80,9 +80,9 @@ public class ClientDB {
 			ResultSet resultQuery = st.executeQuery(sql);
 			while (resultQuery.next()) {
 				String key = resultQuery.getString("key");
-				int examKey = Integer.parseInt(resultQuery.getString("examkey"));
-				float grade = Float.parseFloat(resultQuery.getString("grade"));
-				boolean hasGrade = Boolean.valueOf(resultQuery.getString("hasgrade"));
+				int examKey = resultQuery.getInt("examkey");
+				float grade = resultQuery.getFloat("grade");
+				boolean hasGrade = resultQuery.getBoolean("hasgrade");
 				Client client = new Client(key, examKey, grade, hasGrade);
 				listClientsAllExams.add(client);
 			}
@@ -104,9 +104,9 @@ public class ClientDB {
 			ResultSet resultQuery = st.executeQuery(sql);
 			while (resultQuery.next()) {
 				String key = resultQuery.getString("key");
-				int examKey = Integer.parseInt(resultQuery.getString("examkey"));
-				float grade = Float.parseFloat(resultQuery.getString("grade"));
-				boolean hasGrade = Boolean.valueOf(resultQuery.getString("hasgrade"));
+				int examKey = resultQuery.getInt("examkey");
+				float grade = resultQuery.getFloat("grade");
+				boolean hasGrade = resultQuery.getBoolean("hasgrade");
 				Client client = new Client(key, examKey, grade, hasGrade);
 				listGradesOfClient.add(client);
 			}

@@ -18,7 +18,10 @@
 <p>
 <a href="client.jsp">Client servicies</a>
 </p>
-
+<br>
+<a href="database.jsp">Database</a>
+</p>
+</br>
 
 
 

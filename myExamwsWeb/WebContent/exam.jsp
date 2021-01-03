@@ -14,7 +14,7 @@
 <a href="rest/exam">Get all Exams</a>
 </p>
 </p>
-<a href="getExamFromKey.jsp">Get exam from a key</a>
+<a href="getExamFromKey.jsp">Get exam from a Exam ID</a>
 </p>
 </p>
 <a href="deleteExam.jsp">Delete a Exam</a>

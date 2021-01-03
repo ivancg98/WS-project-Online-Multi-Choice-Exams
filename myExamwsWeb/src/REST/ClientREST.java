@@ -40,5 +40,12 @@ public class ClientREST {
 	public ArrayList<Client> getListGradesOfClient(@PathParam("key") String key){
         return clientdb.getListGradesOfClient(key);
     }
+	
+	@Path("/examId/{examkey}")
+    @GET
+    @Produces("application/json")
+	public ArrayList<Client> getListClientsOfExam(@PathParam("examkey") int examkey){
+        return clientdb.getListClientsOfExam(examkey);
+    }
 
 }

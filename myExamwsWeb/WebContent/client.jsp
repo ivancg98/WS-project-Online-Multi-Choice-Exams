@@ -11,6 +11,15 @@
 <a href="insertClient.jsp">Insert a Client</a>
 </p>
 
+</p>
+<a href="getClientFromKey.jsp">Get client information from a Client ID</a>
+</p>
+
+</p>
+<a href="getClientFromExamKey.jsp">Get clients from a Exam ID</a>
+</p>
+
+
 <p>
 <a href="index.jsp">Return</a>
 </p>

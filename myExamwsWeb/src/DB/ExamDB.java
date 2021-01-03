@@ -166,7 +166,7 @@ public class ExamDB {
 		
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "DELETE FROM client USING exam e WHERE e.key = client.keyexam; "+"DELETE FROM EXAM WHERE key = "+key+";";
+			String sql = "DELETE FROM client USING exam e WHERE e.key = client.examkey; "+"DELETE FROM EXAM WHERE key = "+key+";";
 			st.executeUpdate(sql);
 			st.close();
 			

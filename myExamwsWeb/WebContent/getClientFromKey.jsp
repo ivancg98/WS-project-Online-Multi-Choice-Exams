@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-    <%@ page import="entities.Exam" %>
-    <%@ page import="DB.*" %>
-    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<form autocomplete="off" action="getExamFromKey.jsp" method="post">
+<form autocomplete="off" action="getClientFromKey.jsp" method="post">
 	<p>
-		Enter Exam ID
+		Enter Client ID
 		<br/>
 		<input type="text" name="key" required="required"  />
 	</p>
@@ -32,7 +27,7 @@
 if(request.getParameter("send")!= null){
 
 
-	response.sendRedirect("http://localhost:8080/myExamwsWeb/rest/exam/"+request.getParameter("key")); 
+	response.sendRedirect("http://localhost:8080/myExamwsWeb/rest/client/studentId/"+request.getParameter("key")); 
 
 }
 
@@ -42,10 +37,8 @@ if(request.getParameter("send")!= null){
 
 
 <p>
-<a href="exam.jsp">Return</a>
+<a href="client.jsp">Return</a>
 </p>
-
 
 </body>
 </html>
-

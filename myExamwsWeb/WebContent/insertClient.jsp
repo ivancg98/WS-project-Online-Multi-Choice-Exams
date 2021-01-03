@@ -16,7 +16,7 @@
 
 <form autocomplete="off" action="insertClient.jsp" method="post">
 	<p>
-		Student ID
+		Client ID
 		<br/>
 		<input type="text" name="key" required="required"  />
 	</p>

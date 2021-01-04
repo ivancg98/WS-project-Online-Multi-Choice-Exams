@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import DB.ServerDB;
+import entities.Client;
 import entities.Server;
 
 @Path("/server")
@@ -32,5 +34,12 @@ public class ServerREST {
     @Produces("application/json")
     public ArrayList<Server> getAllServers(){
         return serverdb.getAllServers();
+    }
+    
+	@Path("/ip/{ip}/port/{port}")
+    @GET
+    @Produces("application/json")
+	public Server getServerFromIpPort(@PathParam("ip") String ip,  @PathParam("port")String port) {
+        return serverdb.getServerFromIpPort(ip, port);
     }
 }

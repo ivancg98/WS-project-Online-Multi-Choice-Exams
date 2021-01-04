@@ -15,9 +15,14 @@
 <a href="rest/server">Get all Servers</a>
 </p>
 
+</p>
+<a href="getServerFromIpPort.jsp">Get Server from Ip and Port</a>
+</p>
+
 
 <p>
 <a href="index.jsp">Return</a>
 </p>
 </body>
 </html>
+

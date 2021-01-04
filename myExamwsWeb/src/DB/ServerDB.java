@@ -84,7 +84,7 @@ public class ServerDB {
 
 
 
-public Server getServerFromPortIp(String p, String i) {
+public Server getServerFromIpPort(String i, String p) {
 	ConnectDB con = new ConnectDB();
 	Server  server = new Server();
 	
@@ -93,7 +93,7 @@ public Server getServerFromPortIp(String p, String i) {
 		String sql = "SELECT * FROM server WHERE port = '"+p+"' AND ip = '"+i+"';";
 		ResultSet resultQuery = st.executeQuery(sql);
 		if(resultQuery.next()) {
-			int key = Integer.parseInt(resultQuery.getString("key"));
+			int key = resultQuery.getInt("key");
 			String ip = resultQuery.getString("ip");
 			String port = resultQuery.getString("port");
 		

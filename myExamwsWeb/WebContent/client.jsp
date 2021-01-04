@@ -12,6 +12,10 @@
 </p>
 
 </p>
+<a href="rest/client">Get all Clients</a>
+</p>
+
+</p>
 <a href="getClientFromKey.jsp">Get client information from a Client ID</a>
 </p>
 

@@ -12,16 +12,21 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import DB.ClientDB;
+import DB.ExamDB;
 import entities.Client;
 
 @Path("/client")
 public class ClientREST {
 	private ClientDB clientdb = new ClientDB();
+	private ExamDB examdb = new ExamDB();
 	
 	@Path("")
     @POST
     public Response insertClient(Client client){
-	
+		
+    	if(!examdb.hasExam(client.getExamKey())) {
+    		return Response.status(409).build();
+    	}
 		
         if (clientdb.insertClient(client)) {
         	return Response.status(201).build();

@@ -112,4 +112,23 @@ public Server getServerFromPortIp(String p, String i) {
 	return server;
 }
 
+
+public boolean hasServer(int key) {
+	ConnectDB con = new ConnectDB();
+	boolean hasExist;
+
+	try {
+		Statement st = con.connect().createStatement();
+		String sql = "SELECT * FROM server WHERE key = " + key + ";";
+		ResultSet resultQuery = st.executeQuery(sql);
+		hasExist = resultQuery.next();
+
+	} catch (Exception e) {
+		System.out.println("Error: " + e);
+		return false;
+	}
+	con.disconnect();
+	return hasExist;
+}
+
 }

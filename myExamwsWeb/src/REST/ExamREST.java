@@ -9,6 +9,7 @@ import javax.ws.rs.core.Response;
 
 import DB.ClientDB;
 import DB.ExamDB;
+import DB.ServerDB;
 import entities.Client;
 import entities.Exam;
 
@@ -27,11 +28,16 @@ public class ExamREST{
 	
 	private ExamDB examdb = new ExamDB();
 	private ClientDB clientdb = new ClientDB();
+	private ServerDB serverdb = new ServerDB();
 	
 	
     @Path("")
     @POST
     public Response insertExam(Exam exam){
+    	
+    	if(!serverdb.hasServer(exam.getLocation())) {
+    		return Response.status(409).build();
+    	}
 
         if (examdb.insertExam(exam)) {
         	return Response.status(201).build();

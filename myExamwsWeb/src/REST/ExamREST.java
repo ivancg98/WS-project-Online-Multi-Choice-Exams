@@ -32,7 +32,7 @@ public class ExamREST{
     @POST
     public Response insertExam(Exam exam){
     	
-    	if(examdb.hasServer(exam.getLocation()) || examdb.hasExamWithLocation(exam.getLocation())) {
+    	if(!examdb.hasServer(exam.getLocation()) || examdb.hasExamWithLocation(exam.getLocation())) {
     		return Response.status(409).build();
     	}
 

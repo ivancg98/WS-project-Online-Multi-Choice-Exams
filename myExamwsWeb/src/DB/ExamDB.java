@@ -216,6 +216,24 @@ public class ExamDB {
 		return hasExist;
 	}
 	
+	public boolean hasExamWithLocation(int location) {
+		ConnectDB con = new ConnectDB();
+		boolean hasExist;
+
+		try {
+			Statement st = con.connect().createStatement();
+			String sql = "SELECT * FROM exam WHERE location = " + location + ";";
+			ResultSet resultQuery = st.executeQuery(sql);
+			hasExist = resultQuery.next();
+
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+			return false;
+		}
+		con.disconnect();
+		return hasExist;
+	}
+	
 	public boolean hasExamGrades(int key) {
 		ConnectDB con = new ConnectDB();
 		boolean hasGrades;

@@ -117,25 +117,26 @@ public class ClientDB {
 		con.disconnect();
 		return listGradesOfClient;
 	}
-
-	public boolean hasExamGrades(int key) {
+	
+	public boolean hasExam(int key) {
 		ConnectDB con = new ConnectDB();
-		boolean hasGrades;
+		boolean hasExist;
 
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "SELECT * FROM client WHERE examkey = " + key + " AND hasgrade = TRUE;";
+			String sql = "SELECT * FROM exam WHERE key = " + key + ";";
 			ResultSet resultQuery = st.executeQuery(sql);
-			hasGrades = resultQuery.next();
+			hasExist = resultQuery.next();
 
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 			return false;
 		}
 		con.disconnect();
-		return hasGrades;
+		return hasExist;
 	}
-	
+
+
 	public boolean hasClient(Client client) {
 		ConnectDB con = new ConnectDB();
 		boolean hasExist;

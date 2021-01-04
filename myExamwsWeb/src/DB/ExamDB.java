@@ -160,9 +160,7 @@ public class ExamDB {
 		con.disconnect();
 		return listExams;
 	}
-	
-	
-	
+		
 	public boolean deleteExam(int key) {
 		ConnectDB con = new ConnectDB();
 		
@@ -180,6 +178,24 @@ public class ExamDB {
 		con.disconnect();
 		return true;
 		
+	}
+		
+	public boolean hasServer(int key) {
+		ConnectDB con = new ConnectDB();
+		boolean hasExist;
+
+		try {
+			Statement st = con.connect().createStatement();
+			String sql = "SELECT * FROM server WHERE key = " + key + ";";
+			ResultSet resultQuery = st.executeQuery(sql);
+			hasExist = resultQuery.next();
+
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+			return false;
+		}
+		con.disconnect();
+		return hasExist;
 	}
 	
 	public boolean hasExam(int key) {
@@ -199,6 +215,25 @@ public class ExamDB {
 		con.disconnect();
 		return hasExist;
 	}
+	
+	public boolean hasExamGrades(int key) {
+		ConnectDB con = new ConnectDB();
+		boolean hasGrades;
+
+		try {
+			Statement st = con.connect().createStatement();
+			String sql = "SELECT * FROM client WHERE examkey = " + key + " AND hasgrade = TRUE;";
+			ResultSet resultQuery = st.executeQuery(sql);
+			hasGrades = resultQuery.next();
+
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+			return false;
+		}
+		con.disconnect();
+		return hasGrades;
+	}
+	
 	
 	
 	

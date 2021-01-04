@@ -14,7 +14,7 @@ public class ServerDB {
 		
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "INSERT INTO server (ip, port) VALUES('"+server.getIp()+"' , '"+server.getPort()+"');";
+			String sql = "INSERT INTO server (ip, port) VALUES('" + server.getIp() + "' , '" + server.getPort() + "');";
 			st.executeUpdate(sql);
 			st.close();
 			
@@ -38,7 +38,7 @@ public class ServerDB {
 			String sql = "SELECT * FROM server;";
 			ResultSet resultQuery = st.executeQuery(sql);
 			while(resultQuery.next()) {
-				int key = Integer.parseInt(resultQuery.getString("key"));
+				int key = resultQuery.getInt("key");
 				String ip = resultQuery.getString("ip");
 				String port = resultQuery.getString("port");
 						
@@ -63,7 +63,7 @@ public class ServerDB {
 			String sql = "SELECT * FROM server WHERE key = "+k+";";
 			ResultSet resultQuery = st.executeQuery(sql);
 			if(resultQuery.next()) {
-				int key = Integer.parseInt(resultQuery.getString("key"));
+				int key = resultQuery.getInt("key");
 				String ip = resultQuery.getString("ip");
 				String port = resultQuery.getString("port");
 			
@@ -90,7 +90,7 @@ public Server getServerFromIpPort(String i, String p) {
 	
 	try {
 		Statement st = con.connect().createStatement();
-		String sql = "SELECT * FROM server WHERE port = '"+p+"' AND ip = '"+i+"';";
+		String sql = "SELECT * FROM server WHERE port = '" + p + "' AND ip = '" + i + "';";
 		ResultSet resultQuery = st.executeQuery(sql);
 		if(resultQuery.next()) {
 			int key = resultQuery.getInt("key");
@@ -113,13 +113,13 @@ public Server getServerFromIpPort(String i, String p) {
 }
 
 
-public boolean hasServer(int key) {
+public boolean hasIpPort(Server server) {
 	ConnectDB con = new ConnectDB();
 	boolean hasExist;
 
 	try {
 		Statement st = con.connect().createStatement();
-		String sql = "SELECT * FROM server WHERE key = " + key + ";";
+		String sql = "SELECT * FROM server WHERE ip  = '" + server.getIp() + "' AND port = '" + server.getPort() + "';" ;
 		ResultSet resultQuery = st.executeQuery(sql);
 		hasExist = resultQuery.next();
 

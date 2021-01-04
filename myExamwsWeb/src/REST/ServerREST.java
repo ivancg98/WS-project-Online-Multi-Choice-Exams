@@ -21,7 +21,10 @@ public class ServerREST {
 	@Path("")
     @POST
     public Response insertServer(Server server){
-	
+    	
+		if(serverdb.hasIpPort(server)) {
+    		return Response.status(409).build();
+    	}
 		
         if (serverdb.insertServer(server)) {
         	return Response.status(201).build();

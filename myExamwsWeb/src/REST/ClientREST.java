@@ -17,14 +17,14 @@ import entities.Client;
 
 @Path("/client")
 public class ClientREST {
+	
 	private ClientDB clientdb = new ClientDB();
-	private ExamDB examdb = new ExamDB();
 	
 	@Path("")
     @POST
     public Response insertClient(Client client){
 		
-    	if(!examdb.hasExam(client.getExamKey())) {
+    	if(!clientdb.hasExam(client.getExamKey()) || clientdb.hasClient(client)) {
     		return Response.status(409).build();
     	}
 		

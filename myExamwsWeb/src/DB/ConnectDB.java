@@ -82,9 +82,9 @@ public class ConnectDB {
 		ConnectDB con = new ConnectDB();
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "TRUNCATE TABLE exam RESTART IDENTITY CASCADE;" + 
-						" TRUNCATE TABLE server RESTART IDENTITY CASCADE;" + 
-						" TRUNCATE TABLE client RESTART IDENTITY CASCADE;";
+			String sql = "TRUNCATE TABLE exam RESTART IDENTITY;" + 
+						" TRUNCATE TABLE server RESTART IDENTITY;" + 
+						" TRUNCATE TABLE client RESTART IDENTITY;";
 		} catch (Exception e) {
 			System.out.println("ERROR:" + e);
 			return false;

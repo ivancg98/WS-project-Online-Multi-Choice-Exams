@@ -27,15 +27,12 @@ import javax.ws.rs.DELETE;
 public class ExamREST{
 	
 	private ExamDB examdb = new ExamDB();
-	private ClientDB clientdb = new ClientDB();
-	private ServerDB serverdb = new ServerDB();
-	
 	
     @Path("")
     @POST
     public Response insertExam(Exam exam){
     	
-    	if(!serverdb.hasServer(exam.getLocation())) {
+    	if(examdb.hasServer(exam.getLocation())) {
     		return Response.status(409).build();
     	}
 
@@ -78,7 +75,7 @@ public class ExamREST{
     @DELETE
     public Response deleteExam(@PathParam("examKey") int examKey){
     	
-    	if(clientdb.hasExamGrades(examKey)) {
+    	if(examdb.hasExamGrades(examKey)) {
     		return Response.status(409).build();
     	}
 

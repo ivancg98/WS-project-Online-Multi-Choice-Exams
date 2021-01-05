@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,21 +7,21 @@
 <title>MyExam</title>
 </head>
 <body>
-</p>
-<a href="server.jsp">Server servicies</a>
-</p>
+	<p>
+	<a href="server.jsp">Server servicies</a>
+	</p>
 
-<p>
-<a href="exam.jsp">Exam servicies</a>
-</p>
+	<p>
+		<a href="exam.jsp">Exam servicies</a>
+	</p>
 
-<p>
-<a href="client.jsp">Client servicies</a>
-</p>
-<br>
-<a href="database.jsp">Database</a>
-</p>
-</br>
+	<p>
+		<a href="client.jsp">Client servicies</a>
+	</p>
+	<p>
+	<br><a href="database.jsp">Database</a>
+	</p>
+	
 
 
 

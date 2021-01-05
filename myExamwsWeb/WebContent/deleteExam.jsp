@@ -1,49 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ page import="entities.Exam" %>
-    <%@ page import="DB.*" %>
-    <%@ page import="client.*" %>
-    
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="entities.Exam"%>
+<%@ page import="DB.*"%>
+<%@ page import="client.*"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Delete Exam</title>
 </head>
 <body>
 
-<form autocomplete="off" action="deleteExam.jsp" method="post">
+	<form autocomplete="off" action="deleteExam.jsp" method="post">
+		<p>
+			Exam ID <br /> <input type="text" name="key" required="required" />
+		</p>
+
+		<input type="reset" value="Reset fields" /> <input type="submit"
+			name="send" value="Delete exam">
+
+	</form>
+
 	<p>
-		Exam ID
-		<br/>
-		<input type="text" name="key" required="required"  />
+		<br><a href="exam.jsp">Return</a>
 	</p>
 
-	<input type="reset" value= "Reset fields"/>
-	<input type="submit" name="send" value= "Delete exam">
+	<%
+		if (request.getParameter("send") != null) {
 
-</form>
+			String keyStr = request.getParameter("key");
+			int key = Integer.parseInt(keyStr);
 
-<p>
-<a href="exam.jsp">Return</a>
-</p>
+			ExamClient examClient = new ExamClient();
+			examClient.deleteExam(key);
 
-<%
-
-if(request.getParameter("send")!= null){
-	
-
-	String keyStr = request.getParameter("key");
-	int key = Integer.parseInt(keyStr);
-	
-	
-	
-	ExamClient examClient = new ExamClient ();
-	examClient.deleteExam(key);
-	
-}
-
-%>
+		}
+	%>
 
 </body>
 </html>

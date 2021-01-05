@@ -13,7 +13,9 @@ public class ClientDB {
 
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "INSERT INTO client (key, examkey, grade, hasgrade) VALUES('"+client.getKey()+"',"+client.getExamKey()+","+client.getGrade()+","+Boolean.toString(client.getHasGrade())+");";
+			String sql = "INSERT INTO client (key, examkey, grade, hasgrade) VALUES('" + client.getKey() + "',"
+					+ client.getExamKey() + "," + client.getGrade() + "," + Boolean.toString(client.getHasGrade())
+					+ ");";
 			st.executeUpdate(sql);
 			st.close();
 
@@ -33,9 +35,10 @@ public class ClientDB {
 
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "UPDATE client SET grade = " + gradeStr + ", hasgrade = TRUE WHERE key = '" + client.getKey() + "' AND examkey = " + client.getExamKey() + ";";
+			String sql = "UPDATE client SET grade = " + gradeStr + ", hasgrade = TRUE WHERE key = '" + client.getKey()
+					+ "' AND examkey = " + client.getExamKey() + ";";
 			st.executeUpdate(sql);
-			
+
 			st.close();
 		} catch (Exception e) {
 			System.out.println("ERROR:" + e);
@@ -62,7 +65,7 @@ public class ClientDB {
 				Client client = new Client(key, examKey, grade, hasGrade);
 				listClientsOfExam.add(client);
 			}
-			
+
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
@@ -86,7 +89,7 @@ public class ClientDB {
 				Client client = new Client(key, examKey, grade, hasGrade);
 				listClientsAllExams.add(client);
 			}
-			
+
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
@@ -110,14 +113,14 @@ public class ClientDB {
 				Client client = new Client(key, examKey, grade, hasGrade);
 				listGradesOfClient.add(client);
 			}
-			
+
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
 		con.disconnect();
 		return listGradesOfClient;
 	}
-	
+
 	public boolean hasExam(int key) {
 		ConnectDB con = new ConnectDB();
 		boolean hasExist;
@@ -136,14 +139,14 @@ public class ClientDB {
 		return hasExist;
 	}
 
-
 	public boolean hasClient(Client client) {
 		ConnectDB con = new ConnectDB();
 		boolean hasExist;
 
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "SELECT * FROM client WHERE key = '" + client.getKey() + "' AND examKey = " + client.getExamKey() + ";";
+			String sql = "SELECT * FROM client WHERE key = '" + client.getKey() + "' AND examKey = "
+					+ client.getExamKey() + ";";
 			ResultSet resultQuery = st.executeQuery(sql);
 			hasExist = resultQuery.next();
 
@@ -154,7 +157,5 @@ public class ClientDB {
 		con.disconnect();
 		return hasExist;
 	}
-	
-
 
 }

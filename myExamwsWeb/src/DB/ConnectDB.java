@@ -8,24 +8,24 @@ public class ConnectDB {
 	static String user = "postgres";
 	static String password = "123456";
 	static String url = "jdbc:postgresql://localhost:5432/myExamwsData";
-	Connection connection = null; 
-	
+	Connection connection = null;
+
 	public ConnectDB() {
 		try {
 			connection = DriverManager.getConnection(url, user, password);
-			
-			if(connection != null) {
+
+			if (connection != null) {
 				System.out.print("Connect success  ");
 			}
-		}catch(Exception e){
-			System.out.print("Error: "+e);
+		} catch (Exception e) {
+			System.out.print("Error: " + e);
 		}
 	}
-	
+
 	public Connection connect() {
 		return connection;
 	}
-	
+
 	public void disconnect() {
 		connection = null;
 	}
@@ -75,16 +75,17 @@ public class ConnectDB {
 
 		con.disconnect();
 		return true;
-		
+
 	}
 	
 	public boolean emptyTables() {
 		ConnectDB con = new ConnectDB();
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "TRUNCATE TABLE exam RESTART IDENTITY CASCADE;" + 
-						" TRUNCATE TABLE server RESTART IDENTITY CASCADE;" + 
-						" TRUNCATE TABLE client RESTART IDENTITY;";
+			String sql = "TRUNCATE TABLE exam RESTART IDENTITY CASCADE;"
+					+ " TRUNCATE TABLE server RESTART IDENTITY CASCADE;" + " TRUNCATE TABLE client RESTART IDENTITY;";
+			st.executeUpdate(sql);
+			st.close();
 		} catch (Exception e) {
 			System.out.println("ERROR:" + e);
 			return false;
@@ -98,9 +99,7 @@ public class ConnectDB {
 		ConnectDB con = new ConnectDB();
 		try {
 			Statement st = con.connect().createStatement();
-			String sql = "DROP TABLE Server CASCADE; " +
-			"DROP TABLE Client CASCADE; " +
-			"DROP TABLE Exam CASCADE; ";
+			String sql = "DROP TABLE Server CASCADE; " + "DROP TABLE Client CASCADE; " + "DROP TABLE Exam CASCADE; ";
 			st.executeUpdate(sql);
 			st.close();
 		} catch (Exception e) {
@@ -110,8 +109,6 @@ public class ConnectDB {
 
 		con.disconnect();
 		return true;
-}
+	}
 
-
-	
 }

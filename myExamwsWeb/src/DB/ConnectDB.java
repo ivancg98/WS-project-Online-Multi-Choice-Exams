@@ -7,7 +7,7 @@ public class ConnectDB {
 	static String db = "myExamwsData";
 	static String user = "postgres";
 	static String password = "123456";
-	static String url = "jdbc:postgresql://localhost:5432/myExamwsData";
+	static String url = "jdbc:postgresql://localhost:5432/" + db;
 	Connection connection = null;
 
 	public ConnectDB() {

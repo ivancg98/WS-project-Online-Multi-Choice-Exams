@@ -29,7 +29,7 @@ public class ClientClient {
 			out.write(gson.toJson(client).getBytes());
 			out.flush();
 
-			if (connection.getResponseCode() != 201) {
+			if (connection.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
 				throw new RuntimeException("ERROR: " + connection.getResponseCode());
 			}
 
